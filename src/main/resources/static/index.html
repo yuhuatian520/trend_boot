@@ -1,0 +1,112 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>主页</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="stylesheet" href="../static/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../static/css/admin.css">
+    <link rel="stylesheet" href="easy/themes/default/easyui.css">
+    <link rel="stylesheet" href="easy/themes/icon.css">
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="easy/jquery.easyui.min.js"></script>
+    <script src="easy/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/amazeui.min.js"></script>
+</head>
+
+<body>
+<header class="am-topbar admin-header">
+    <div class="am-topbar-brand">后台管理系统</div>
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+        <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
+            <li class="am-dropdown tognzhi" data-am-dropdown></li>
+        </ul>
+    </div>
+</header>
+
+<div class="am-cf admin-main">
+
+    <div class="nav-navicon admin-main admin-sidebar">
+        <div class="sideMenu">
+            <h3 class="am-icon-flag">简历管理</h3>
+            <ul>
+                <li data-url="/view/school"><a href="#">简历列表</a></li>
+            </ul>
+            <h3 class="am-icon-cart-plus"> 用户管理</h3>
+            <ul>
+                <li data-url="/view/order"><a href="#">用户列表</a></li>
+            </ul>
+            <h3 class="am-icon-users"><em></em> <a href="#">模板管理</a></h3>
+            <ul>
+                <li data-url="/view/user"><a href="#">模板列表</a></li>
+            </ul>
+
+
+        </div>
+
+        <script type="text/javascript">
+            jQuery(".sideMenu").slide({
+                titCell: "h3", //鼠标触发对象
+                targetCell: "ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+                effect: "slideDown", //targetCell下拉效果
+                delayTime: 300, //效果时间
+                triggerTime: 150, //鼠标延迟触发时间（默认150）
+                defaultPlay: true,//默认是否执行效果（默认true）
+                returnDefault: true //鼠标从.sideMen移走后返回默认状态（默认false）
+            });
+        </script>
+
+    </div>
+
+    <div class=" admin-content">
+        <div class="admin">
+            <script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+        </div>
+    </div>
+</div>
+</div>
+<div class="admin">
+    <div id="topWindow" style="overflow: hidden;"></div>
+</div>
+
+
+<!-- 主体内容 -->
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main"  id="main" style="margin-top: 0px;padding-top: 0px;padding-bottom: 0px;margin-bottom: 0px;">
+    <iframe  id="mainframe"  name="mainframe" src="/back/main" style="width: 100%;border: 0px;margin: 0px;padding: 0px;"></iframe>
+    <script type="text/javascript">
+        var height = jQuery(window).height() - 50;
+        jQuery("#mainframe").attr("height", "" + height + "px;");
+        jQuery("aside ul li").click(function(){
+            jQuery("aside ul li").removeClass("active");
+            $(this).addClass("active");
+        });
+
+    </script>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(".sideMenu").on("click","li",function(e){
+        var url = e.currentTarget.dataset.url;
+        if(url){
+            $(".frame").attr ("src", url);
+        }
+    })
+</script>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="../static/js/polyfill/rem.min.js"></script>
+<script src="../static/js/polyfill/respond.min.js"></script>
+<script src="../static/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+</body>
+</html>

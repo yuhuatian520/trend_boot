@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>查看用户信息</title>
+<link rel="stylesheet" type="text/css" href="/admin/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/style.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/jquery.validator.css">
+<link rel="stylesheet" type="text/css" href="/admin/css/font-awesome.min.css">
+<link rel="apple-touch-icon-precomposed" href="/admin/images/icon/icon.png">
+<link rel="shortcut icon" href="/admin/images/icon/favicon.ico">
+<script src="/admin/js/jquery-2.1.4.min.js"></script>
+<script src="/admin/js/jquery.validator.js"></script>
+<script src="/admin/js/zh_CN.js"></script>
+</head>
+
+<body class="user-select" style="margin: 0px;padding: 0px;">
+	<div>
+      		<ul class="breadcrumb" style="margin: 0px;">
+      			<li>用户管理</li>
+      			<li>查看用户信息</li>
+      		</ul>
+      	</div>
+ 	
+      <form action="/wechat/user/queryover" method="post" class="form-horizontal">
+      	<input type="hidden" name="openId" value="${(users.openId)!}"/>
+        <div class="form-group ">
+        
+          	<label for="category-name" class="col-sm-2 control-label">用户昵称</label>
+ 			<div class="col-sm-6">
+ 			<input type="text" id="category-name"
+ 			 name="nickName" class="form-control" placeholder="在此处输入用户昵称" value="${(users.nickName)!}"  autocomplete="off">
+ 			</div>
+          
+       </div>
+       <div class="form-group">
+          	<label for="category-name"  class="col-sm-2 control-label">性别:0 作为女来看</label>
+          	<div class="col-sm-6">
+          	<input type="text" id="category-name" name="gender"  value="${(users.gender)!}" class="form-control"  placeholder="在此处输入用户性别"  autocomplete="off">
+       		</div>
+        </div> 
+       <div class="form-group">
+          	<label for="category-name" class="col-sm-2 control-label">用户所在地</label>
+          	<div class="col-sm-6">
+          	<input type="text" id="category-name" name="city" value="${(users.city)!}" class="form-control" placeholder="在此处输入用户地址"  >
+        	</div>
+        </div> 
+       <div class="form-group">
+          	<label for="category-name" class="col-sm-2 control-label">头像地址</label>
+          	<div class="col-sm-6">
+          	<input type="text"  id="category-name" class="form-control" value="${(users.avatarUrl)!}" name="avatarUrl" placeholder="在此处输入用户头像"   >
+       		</div>
+        </div> 
+        <div class="col-sm-6 col-md-offset-2">
+        <button class="btn btn-primary" type="submit" name="submit">查看完毕</button>
+        </div>
+      </form>
+   
+<script src="/admin/js/bootstrap.min.js"></script> 
+<script src="/admin/js/admin-scripts.js"></script>
+</body>
+</html>
